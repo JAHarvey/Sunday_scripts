@@ -53,6 +53,8 @@ gap.in %>%
   group_by(continent) %>%
   summarize(mean = mean (pop)) -> data.out
 
+
+data(iris)
 attach(iris)
 install.packages("tidyr", dependencies=TRUE)
 library("tidyr")
