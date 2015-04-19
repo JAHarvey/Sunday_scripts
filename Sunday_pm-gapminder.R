@@ -4,11 +4,11 @@
 #April 19, 2015
 
 install.packages("dplyr", dependencies=TRUE)
+y
 library("dplyr")
 
 
-#read in data as tab-delimited
-gap.in <- read.table("output/combined_gapMinder.tsv", sep= "\t", header=TRUE) 
+
 
 #gives you 
 #for (number in 1:10){
@@ -38,9 +38,20 @@ add.me <- function(x, y){
 add.me(3,4)
 
 
-gap.in %>%
-  filter(pop > 15000000)
 
+gap.in %>%
+  filter(pop > 15000000) %>%
+  select (country, year, pop) %>%
+  group_by(country) %>%
+  summarize(min = min(pop))
+
+#Challenge
+#Calculate the mean population per continent per year for year prior to 1990
+
+gap.in %>%
+  filter(year < 1990) %>%
+  group_by(continent) %>%
+  summarize(mean = mean (pop))
 
 
 
