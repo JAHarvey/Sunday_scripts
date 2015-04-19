@@ -38,7 +38,8 @@ add.me <- function(x, y){
 add.me(3,4)
 
 
-
+gap.in %>%
+  filter(pop > 15000000)
 
 
 
